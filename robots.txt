@@ -1,0 +1,5 @@
+# Allow search engines to crawl the site
+User-agent: *
+Allow: /
+
+Sitemap: https://www.lumiglowservices.ca/sitemap.xml
