@@ -818,19 +818,24 @@ main {
     }
 
     .reviews-slider {
-        overflow: visible;
+        overflow-x: auto;
+        padding-bottom: 12px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
     }
 
     .review-track {
-        flex-wrap: wrap;
-        width: 100%;
+        flex-wrap: nowrap;
+        width: auto;
         animation: none;
-        justify-content: center;
+        justify-content: flex-start;
+        gap: 18px;
     }
 
     .review-card {
-        min-width: 100%;
-        max-width: 100%;
+        min-width: 280px;
+        max-width: 80vw;
+        scroll-snap-align: start;
     }
 }
 
