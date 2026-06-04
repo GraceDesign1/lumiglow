@@ -47,6 +47,7 @@ if (nextBtn && prevBtn && slides.length) {
 
 const reviewForm = document.querySelector('.review-form');
 const reviewTrack = document.querySelector('.review-track');
+const reviewCount = document.querySelector('.review-count');
 
 function createReviewCard(reviewer, text) {
     const card = document.createElement('div');
@@ -63,6 +64,12 @@ function createReviewCard(reviewer, text) {
     return card;
 }
 
+function updateReviewCount() {
+    if (!reviewCount || !reviewTrack) return;
+    const count = reviewTrack.querySelectorAll('.review-card').length;
+    reviewCount.textContent = `${count} review${count === 1 ? '' : 's'}`;
+}
+
 function loadSavedReviews() {
     if (!reviewTrack) return;
     const saved = JSON.parse(localStorage.getItem('lumiGlowReviews') || '[]');
@@ -70,6 +77,7 @@ function loadSavedReviews() {
         const card = createReviewCard(review.name, review.text);
         reviewTrack.appendChild(card);
     });
+    updateReviewCount();
 }
 
 function saveReview(review) {
@@ -93,6 +101,8 @@ if (reviewForm && reviewTrack) {
         reviewTrack.appendChild(card);
         saveReview({ name, text });
         reviewForm.reset();
+        updateReviewCount();
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     });
 }
 

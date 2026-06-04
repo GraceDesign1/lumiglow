@@ -549,6 +549,12 @@ main {
     width: 100%;
 }
 
+.review-count {
+    margin-top: 12px;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
 .review-track {
     display: flex;
     gap: 24px;
@@ -809,6 +815,22 @@ main {
 
     .hero {
         padding-top: 100px;
+    }
+
+    .reviews-slider {
+        overflow: visible;
+    }
+
+    .review-track {
+        flex-wrap: wrap;
+        width: 100%;
+        animation: none;
+        justify-content: center;
+    }
+
+    .review-card {
+        min-width: 100%;
+        max-width: 100%;
     }
 }
 
