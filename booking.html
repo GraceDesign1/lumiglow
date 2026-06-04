@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Cleaning | LumiGlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+             <div class="Lumi">
+            <a class="logo" href="#home"><img src="photo_2026-05-29_12-46-22.jpg" alt="LumiGlow Logo"></a>
+            <p >LumiGlow</p></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a class="btn btn-nav" href="booking.html">Book Now</a></li>
+            </ul>
+            <button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-header">
+            <h2>Book Your Cleaning</h2>
+            <p class="section-subtitle">Complete the form below and your booking request will be sent to Lumiglowcleans@gmail.com.</p>
+            <div id="formMessage" class="form-message"></div>
+        </section>
+
+        <section class="booking-page">
+            <div class="booking-layout">
+                <div class="booking-info">
+                    <h3>Fast and simple booking</h3>
+                    <p>Enter your details and we will prepare a personalized cleaning plan. The booking request opens in your email app for easy submission.</p>
+                    <div class="booking-steps">
+                        <div class="step-card">
+                            <span>1</span>
+                            <h4>Choose your service</h4>
+                        </div>
+                        <div class="step-card">
+                            <span>2</span>
+                            <h4>Share your details</h4>
+                        </div>
+                        <div class="step-card">
+                            <span>3</span>
+                            <h4>Send the request</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="booking-form" action="https://formsubmit.co/lumiglowcleans@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Cleaning Booking Request">
+                    <input type="hidden" name="_next" value="booking.html?success=1">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <select name="service" required>
+                        <option value="">Choose Service</option>
+                        <option>Residential Cleaning</option>
+                        <option>Commercial Cleaning</option>
+                        <option>Move In / Move Out Cleaning</option>
+                        <option>Deep Cleaning</option>
+                    </select>
+                    <input type="text" name="address" placeholder="Address" required>
+                    <textarea name="message" rows="5" placeholder="Additional information"></textarea>
+                    <button type="submit" class="btn btn-primary btn-large">Send Booking Request</button>
+                    <p class="booking-note">When submitted, the booking request will be sent directly to Lumiglowcleans@gmail.com.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2026 LumiGlow Cleaning Services. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
