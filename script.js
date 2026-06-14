@@ -45,6 +45,29 @@ if (nextBtn && prevBtn && slides.length) {
     }, 4000);
 }
 
+const aboutImage = document.getElementById('aboutImage');
+const aboutImageSources = [
+    'Images/booking.jpg',
+    'Images/b4.jpg',
+    'Images/after.jpg',
+    'Images/after2.jpg'
+];
+let aboutImageIndex = 0;
+
+function cycleAboutImage() {
+    if (!aboutImage || aboutImageSources.length === 0) return;
+    aboutImageIndex = (aboutImageIndex + 1) % aboutImageSources.length;
+    aboutImage.style.opacity = '0';
+    setTimeout(() => {
+        aboutImage.src = aboutImageSources[aboutImageIndex];
+        aboutImage.style.opacity = '1';
+    }, 250);
+}
+
+if (aboutImage) {
+    setInterval(cycleAboutImage, 5000);
+}
+
 const reviewForm = document.querySelector('.review-form');
 const reviewTrack = document.querySelector('.review-track');
 const reviewCount = document.querySelector('.review-count');
