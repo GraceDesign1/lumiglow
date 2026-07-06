@@ -80,7 +80,7 @@ function createReviewCard(reviewer, text) {
     reviewText.textContent = `"${text}"`;
 
     const author = document.createElement('h4');
-    author.textContent = `- ${reviewer}`;
+    author.textContent = reviewer;
 
     card.appendChild(reviewText);
     card.appendChild(author);
