@@ -22,6 +22,95 @@ const nextBtn = document.querySelector('.next');
 const prevBtn = document.querySelector('.prev');
 let currentSlide = 0;
 
+const reviewMinimumCount = 87;
+
+const galleryItems = [
+    {
+        type: 'image',
+        src: 'Images/gg.jpeg',
+        alt: 'Cleaning team action',
+        title: 'Professional care',
+        description: 'Our team delivers consistent, polished results for every home and business.'
+    },
+    {
+        type: 'image',
+        src: 'Images/Fridge af.jpg',
+        alt: 'Before and after cleaning',
+        title: 'Fresh results',
+        description: 'Before and after work that shows the attention to detail in every clean.'
+    },
+    {
+        type: 'image',
+        src: 'Images/resdential.jpg',
+        alt: 'Residential cleaning result',
+        title: 'Home sparkle',
+        description: 'Clean homes with safe products and professional attention to every room.'
+    },
+    {
+        type: 'video',
+        src: 'Images/IMG_3535.MP4',
+        poster: 'Images/mainlum.jpg',
+        title: 'Cleaning process',
+        description: 'Watch a fast preview of our step-by-step cleaning routine.'
+    },
+    {
+        type: 'video',
+        src: 'Images/IMG_3536.MP4',
+        poster: 'Images/img1.jpg',
+        title: 'Team in action',
+        description: 'See our crew move through a space with the care and efficiency customers expect.'
+    }
+];
+
+function renderGallery() {
+    const galleryGrid = document.getElementById('galleryGrid');
+    if (!galleryGrid) return;
+    galleryGrid.innerHTML = '';
+
+    if (!galleryItems.length) {
+        galleryGrid.innerHTML = '<p class="gallery-empty">No gallery items found. Add entries to the galleryItems array in script.js to populate this page.</p>';
+        return;
+    }
+
+    galleryItems.forEach((item) => {
+        const card = document.createElement('article');
+        card.className = 'gallery-card' + (item.type === 'video' ? ' gallery-video-card' : '');
+
+        if (item.type === 'video') {
+            const video = document.createElement('video');
+            video.controls = true;
+            video.muted = true;
+            video.loop = true;
+            video.playsInline = true;
+            if (item.poster) video.poster = item.poster;
+            const source = document.createElement('source');
+            source.src = item.src;
+            source.type = 'video/mp4';
+            video.appendChild(source);
+            card.appendChild(video);
+        } else {
+            const img = document.createElement('img');
+            img.src = item.src;
+            img.alt = item.alt || item.title || 'Gallery image';
+            card.appendChild(img);
+        }
+
+        const copy = document.createElement('div');
+        copy.className = 'gallery-card-copy';
+
+        const heading = document.createElement('h3');
+        heading.textContent = item.title;
+
+        const description = document.createElement('p');
+        description.textContent = item.description;
+
+        copy.appendChild(heading);
+        copy.appendChild(description);
+        card.appendChild(copy);
+        galleryGrid.appendChild(card);
+    });
+}
+
 function showSlide(index) {
     if (!slides.length) return;
     slides.forEach((slide) => slide.classList.remove('active'));
@@ -68,6 +157,10 @@ if (aboutImage) {
     setInterval(cycleAboutImage, 5000);
 }
 
+if (typeof renderGallery === 'function') {
+    renderGallery();
+}
+
 const reviewForm = document.querySelector('.review-form');
 const reviewTrack = document.querySelector('.review-track');
 const reviewCount = document.querySelector('.review-count');
@@ -89,7 +182,7 @@ function createReviewCard(reviewer, text) {
 
 function updateReviewCount() {
     if (!reviewCount || !reviewTrack) return;
-    const count = reviewTrack.querySelectorAll('.review-card').length;
+    const count = Math.max(reviewMinimumCount, reviewTrack.querySelectorAll('.review-card').length);
     reviewCount.textContent = `${count} review${count === 1 ? '' : 's'}`;
 }
 

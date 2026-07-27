@@ -39,42 +39,12 @@
         </section>
 
         <section class="gallery-section">
-            <div class="media-grid">
-                <article class="gallery-card">
-                    <img src="Images/gg.jpeg" alt="Cleaning team action">
-                    <div class="gallery-card-copy">
-                        <h3>Professional care</h3>
-                        <p>Our team delivers consistent, polished results for every home and business.</p>
-                    </div>
-                </article>
-                <article class="gallery-card">
-                    <img src="Images/booking.jpg" alt="Fresh interior after cleaning">
-                    <div class="gallery-card-copy">
-                        <h3>Fresh results</h3>
-                        <p>Before and after work that shows the attention to detail in every clean.</p>
-                    </div>
-                </article>
-                <article class="gallery-card gallery-video-card">
-                    <video controls muted loop playsinline poster="Images/mainlum.jpg">
-                        <source src="Images/cleaning-demo.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="gallery-card-copy">
-                        <h3>Cleaning process</h3>
-                        <p>Watch a fast preview of our step-by-step cleaning routine.</p>
-                    </div>
-                </article>
-                <article class="gallery-card gallery-video-card">
-                    <video controls muted loop playsinline poster="Images/img1.jpg">
-                        <source src="Images/team-tour.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="gallery-card-copy">
-                        <h3>Team in action</h3>
-                        <p>See our crew move through a space with the care and efficiency customers expect.</p>
-                    </div>
-                </article>
+            <div class="media-grid" id="galleryGrid">
+                <!-- Admin can add or update gallery images and videos in the galleryItems array inside script.js. -->
             </div>
+            <noscript>
+                <div class="gallery-empty">JavaScript is required to load the LumiGlow gallery. Please enable JavaScript or add gallery items directly into the HTML.</div>
+            </noscript>
         </section>
     </main>
 
