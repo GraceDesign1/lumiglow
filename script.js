@@ -22,7 +22,7 @@ const nextBtn = document.querySelector('.next');
 const prevBtn = document.querySelector('.prev');
 let currentSlide = 0;
 
-const reviewMinimumCount = 87;
+const reviewMinimumCount = 0;
 
 function renderGallery() {
     const galleryGrid = document.getElementById('galleryGrid');
@@ -91,9 +91,14 @@ function openGalleryOverlay(item) {
 
     if (!overlay || !overlayMedia || !overlayTitle || !overlayDescription || !overlayDownload) return;
 
+    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollBarWidth > 0) {
+        document.body.style.paddingRight = `${scrollBarWidth}px`;
+    }
     overlay.classList.add('active');
     overlay.setAttribute('aria-hidden', 'false');
     overlayMedia.innerHTML = '';
+    document.body.style.overflow = 'hidden';
 
     if (item.type === 'video') {
         const video = document.createElement('video');
@@ -102,6 +107,7 @@ function openGalleryOverlay(item) {
         video.muted = false;
         video.loop = false;
         video.playsInline = true;
+        video.style.maxWidth = '100%';
         video.style.maxHeight = '84vh';
         if (item.poster) video.poster = item.poster;
         const source = document.createElement('source');
@@ -115,6 +121,8 @@ function openGalleryOverlay(item) {
         const img = document.createElement('img');
         img.src = item.src;
         img.alt = item.alt || item.title || 'Gallery image preview';
+        img.style.maxWidth = '100%';
+        img.style.maxHeight = '84vh';
         overlayMedia.appendChild(img);
         overlayDownload.href = item.src;
         overlayDownload.setAttribute('download', item.src.split('/').pop() || 'LumiGlow-image.jpg');
@@ -131,6 +139,8 @@ if (overlayClose && overlay) {
     overlayClose.addEventListener('click', () => {
         overlay.classList.remove('active');
         overlay.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
         const overlayMedia = document.getElementById('overlayMedia');
         if (overlayMedia) overlayMedia.innerHTML = '';
     });
@@ -139,6 +149,8 @@ if (overlayClose && overlay) {
         if (event.target === overlay) {
             overlay.classList.remove('active');
             overlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
             const overlayMedia = document.getElementById('overlayMedia');
             if (overlayMedia) overlayMedia.innerHTML = '';
         }
@@ -216,7 +228,7 @@ function createReviewCard(reviewer, text) {
 
 function updateReviewCount() {
     if (!reviewCount || !reviewTrack) return;
-    const count = Math.max(reviewMinimumCount, reviewTrack.querySelectorAll('.review-card').length);
+    const count = reviewTrack.querySelectorAll('.review-card').length;
     reviewCount.textContent = `${count} review${count === 1 ? '' : 's'}`;
 }
 
