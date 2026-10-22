@@ -269,7 +269,7 @@ function createReviewCard(reviewer, text) {
     card.className = 'review-card';
 
     const reviewText = document.createElement('p');
-    reviewText.textContent = `"${text}"`;
+    reviewText.textContent = text;
 
     const author = document.createElement('h4');
     author.textContent = reviewer;
@@ -282,7 +282,8 @@ function createReviewCard(reviewer, text) {
 function updateReviewCount() {
     if (!reviewCount || !reviewTrack) return;
     const count = reviewTrack.querySelectorAll('.review-card').length;
-    reviewCount.textContent = `${count} review${count === 1 ? '' : 's'}`;
+    reviewCount.textContent = `${count} ${count === 1 ? 'review' : 'reviews'}`;
+    reviewCount.setAttribute('aria-live', 'polite');
 }
 
 function loadSavedReviews() {
@@ -290,7 +291,7 @@ function loadSavedReviews() {
     reviewTrack.innerHTML = '';
 
     const saved = JSON.parse(localStorage.getItem('lumiGlowReviews') || '[]');
-    const reviews = [...defaultReviews, ...saved.filter((review) => review && review.name && review.text)];
+    const reviews = [...defaultReviews, ...saved.filter((review) => review && review.name && review.text)].reverse();
 
     reviews.forEach((review) => {
         const card = createReviewCard(review.name, review.text);
@@ -318,7 +319,7 @@ if (reviewForm && reviewTrack) {
         if (!name || !text) return;
 
         const card = createReviewCard(name, text);
-        reviewTrack.appendChild(card);
+        reviewTrack.insertBefore(card, reviewTrack.firstChild);
         saveReview({ name, text });
         reviewForm.reset();
         updateReviewCount();
