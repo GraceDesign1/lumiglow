@@ -24,15 +24,14 @@ const galleryItems = [
     },
     {
         type: 'video',
-        src: 'Images/video.mp4',
-        poster: 'Images/mainlum.jpg',
+        src: 'Images/IMG.MP4',
         title: '',
         description: 'we will not disappoint you with our work, we will make your home shine and sparkle.'
     },
     {
         type: 'video',
         src: 'Images/IMG_3536.MP4',
-        poster: 'Images/img1.jpg',
+        
         title: '',
         description: 'Clean homes with safe products and professional attention to every room.'
     },
