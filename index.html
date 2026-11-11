@@ -172,16 +172,16 @@
 
                     </ul>
                 </article>
-                <article class="sevice-card">
+                <article class="service-card commercial-card">
                     <img src="Images/office.jpg" alt="Commercial cleaning">
                     <h3>Commercial Cleaning</h3>
-                    <p>cleaned with flexible scheduling.</p>
+                    <p>Reliable, flexible cleaning for offices, retail spaces, and professional workplaces.</p>
                     <ul>
-                        <li><a href="">Office Cleaning</a></li>
-                        <li><a href="">retail Cleaning</a></li>
-                        <li><a href="">commercial spaces </a></li>
-                        <li><a href="">Medical& Professional Offices</a></li>
-                        <li><a href="">Customized Cleaning Plan</a></li>
+                        <li><a href="#contact">Office Cleaning</a></li>
+                        <li><a href="#contact">Retail Cleaning</a></li>
+                        <li><a href="#contact">Commercial Spaces</a></li>
+                        <li><a href="#contact">Medical & Professional Offices</a></li>
+                        <li><a href="#contact">Customized Cleaning Plan</a></li>
                     </ul>
                 </article>
                 <article class="service-card">
@@ -269,26 +269,19 @@
 
         <section class="reviews">
             <div class="section-header">
-                <h2>Client Reviews</h2>
-                <p class="section-subtitle">Read reviews from our happy customers and add your own experience.</p>
-                <p class="review-count">48 reviews</p>
-            </div>
-            <div class="review-form-card">
-                <form class="review-form">
-                    <input type="text" name="reviewer" placeholder="Your Name" required>
-                    <textarea name="reviewText" rows="4" placeholder="Share your experience" required></textarea>
-                    <button type="submit" class="btn btn-primary">Add Review</button>
-                </form>
+                <h2>Google Reviews</h2>
+                <p class="section-subtitle">Real feedback from customers on Google, refreshed automatically.</p>
+                <p class="review-count" id="reviewCount">Loading reviews...</p>
             </div>
             <div class="reviews-slider">
-                <div class="review-track"></div>
+                <div class="review-track" id="reviewTrack"></div>
             </div>
         </section>
 
         <section class="contact" id="contact">
             <div class="section-header">
                 <h2>Contact Us</h2>
-                <p class="section-subtitle">Message us for a quote or book directly using the button below.</p>
+                <p class="section-subtitle">Send a message directly from this website or book your cleaning in just a few steps.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-box">
@@ -304,12 +297,12 @@
                 <div class="contact-box">
                     <i class="fa-solid fa-phone"></i>
                     <h3>Phone</h3>
-                <p><a href="tel:+1 (506) 609-6756">+1 (506) 609-6756</a></p>
+                    <p><a href="tel:+1 (506) 609-6756">+1 (506) 609-6756</a></p>
                 </div>
                 <div class="contact-box">
                     <i class="fa-solid fa-envelope"></i>
                     <h3>Email</h3>
-                    <p><a href="mailto:Lumiglowcleans@gmail.com">Lumiglowcleans@gmail.com</a></p>
+                    <p>Lumiglowcleans@gmail.com</p>
                 </div>
                 <div class="contact-box">
                     <i class="fa-brands fa-whatsapp"></i>
@@ -317,6 +310,35 @@
                     <p><a class="plain-link" href="https://wa.me/15066096756" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a></p>
                 </div>
             </div>
+
+            <div class="contact-form-card">
+                <form id="contactForm" class="contact-form" action="https://formsubmit.co/lumiglowcleans@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Website Contact Message">
+                    <input type="hidden" name="_next" value="index.html?contact=success">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="field-group">
+                        <label for="contact-name">Name</label>
+                        <input id="contact-name" type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="field-group">
+                        <label for="contact-email">Email</label>
+                        <input id="contact-email" type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="field-group">
+                        <label for="contact-phone">Phone</label>
+                        <input id="contact-phone" type="tel" name="phone" placeholder="Phone Number">
+                    </div>
+                    <div class="field-group full-width">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" rows="5" placeholder="Tell us about your cleaning needs" required></textarea>
+                    </div>
+                    <div class="field-group full-width">
+                        <button type="submit" class="btn btn-primary btn-large">Send Email</button>
+                    </div>
+                </form>
+                <div id="contactFormMessage" class="form-message" aria-live="polite"></div>
+            </div>
+
             <div class="contact-action">
                 <a href="booking.html" class="btn btn-primary btn-large">Book a Cleaning</a>
             </div>
