@@ -1267,10 +1267,41 @@ main {
         padding: 24px 16px;
         margin: 0 auto;
         width: 100%;
+        gap: 24px;
     }
 
     .booking-info h3 {
-        font-size: 2rem;
+        font-size: clamp(1.65rem, 8vw, 2rem);
+    }
+
+    .booking-info,
+    .booking-form {
+        min-width: 0;
+    }
+
+    .booking-info p {
+        margin-bottom: 22px;
+    }
+
+    .booking-form {
+        gap: 14px;
+    }
+
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+        min-width: 0;
+        padding: 14px;
+        border-radius: 14px;
+        font-size: 16px;
+    }
+
+    .booking-form textarea {
+        min-height: 120px;
+    }
+
+    .booking-note {
+        line-height: 1.55;
     }
 
     .booking-form button {
