@@ -219,16 +219,13 @@ function normalizeReviewText(text) {
 }
 
 const fallbackReviews = [
-    { name: 'Ava Martin', text: 'The team made our apartment feel brand new. Our kitchen sparkled, the bathrooms looked fresh, and the whole place smelled clean and calm.' },
-    { name: 'Dylan Brooks', text: 'I booked a deep clean before guests arrived and it was worth every penny. The attention to detail was beyond what I expected.' },
-    { name: 'Selena Patel', text: 'Friendly, punctual, and incredibly thorough. They handled every room with care and left our home spotless without rushing.' },
-    { name: 'Marcus Lee', text: 'I love that they use thoughtful products that do not leave strong fumes. My home feels cleaner and more comfortable after each visit.' },
-    { name: 'Harper Nguyen', text: 'The cleaning crew was respectful, efficient, and easy to communicate with. Booking was smooth and the final result looked amazing.' },
-    { name: 'Noah Walker', text: 'They cleaned our rental before move-in and everything looked perfect. The carpets, windows, and kitchen all stood out.' },
-    { name: 'Nia Foster', text: 'I was nervous about stains in the bathroom, but they handled them completely. The finish was polished and the room looked brighter.' },
-    { name: 'Ethan Ross', text: 'Our office felt fresh and professional again after their visit. They focused on the details that matter most for a clean, welcoming workspace.' },
-    { name: 'Leah Adams', text: 'Booking was simple and the team arrived exactly on time. My living room and bedrooms looked cared for from the very start.' },
-    { name: 'Julian Price', text: 'I appreciated how organized and consistent the service was. Every surface felt cleaner, and the overall atmosphere of the house improved instantly.' }
+    { name: 'Eunice Ekua Oppong', text: 'I had a wonderful experience with this cleaning service! The owner personally …', rating: 5 },
+    { name: 'Eunice Valentina Kumi', text: 'I was moving so needed a cleaning team and I contact LumiGlow and they did a very great job for me so don’t hesitate to contact them for all your cleaning needs because you won’t regret it …' },
+    { name: 'Samuel Osei', text: 'I’m extremely impressed with the cleaning service. My home was left spotless, fresh, and beautifully organized. The attention to detail was outstanding, and the level of professionalism and customer care exceeded my expectations. I highly recommend their services to anyone looking for quality, reliability, and exceptional results.' },
+    { name: 'Maame Adomah', text: 'We had LumiGlow clean our new restaurant space and they did a great job. Everything looked fresh, spotless, and ready for the opening.Professional and thorough,i highly recommended! …' },
+    { name: 'Sreekumar Nair', text: 'I had a good experience with Lumiglow. They were very detail oriented before beginning the cleaning and did a good job. Highly recommended!' },
+    { name: 'Quinn Lanier', text: 'Booked a move out clean and they did a great job. Got my damage deposit back.' },
+    { name: 'Matt Turner', text: 'I’m very pleased with the results. The kitchen, bathrooms, and floors were cleaned beautifully, and the whole house looked spotless. Great job!' }
 ];
 
 function createReviewCard(review) {
